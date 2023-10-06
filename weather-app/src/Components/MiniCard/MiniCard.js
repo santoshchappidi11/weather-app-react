@@ -36,7 +36,13 @@ const MiniCard = ({ time, temp, conditions }) => {
     <div id="mini-card">
       <div id="card">
         <div id="card-header">
-          <h3>Saturday</h3>
+          <h3>
+            {
+              new Date(time)
+                .toLocaleDateString("en", { weekday: "long" })
+                .split("")[0]
+            }
+          </h3>
         </div>
         <div id="image">
           <img src={icon} alt="icons" />

@@ -1,5 +1,5 @@
 import "./App.css";
-import BackgroundLayout from "./Components/BackgroundLayout/BackgroundLayout";
+// import BackgroundLayout from "./Components/BackgroundLayout/BackgroundLayout";
 import Navbar from "./Components/Navbar/Navbar";
 import WeatherMain from "./Components/WeatherMain/WeatherMain";
 
@@ -15,7 +15,7 @@ function App() {
     //     </div>
     //   </div> */}
       <Navbar></Navbar>
-      <BackgroundLayout></BackgroundLayout>
+      {/* <BackgroundLayout></BackgroundLayout> */}
       <WeatherMain></WeatherMain>
     </div>
   );

@@ -10,7 +10,18 @@ const WeatherMain = () => {
     <div id="weather-body">
       <WeatherCard />
       {values.slice(1, 7).map((curr, index) => (
-        <MiniCard key={index} temp={curr.temp} conditions={curr.conditions} />
+        // <MiniCard
+        //   key={curr.dateTime}
+        //   time={curr.dateTime}
+        //   temp={curr.temp}
+        //   conditions={curr.conditions}
+        // />
+        <MiniCard
+          key={1234}
+          time={new Date()}
+          temp={"28"}
+          conditions={"Clear"}
+        />
       ))}
     </div>
   );

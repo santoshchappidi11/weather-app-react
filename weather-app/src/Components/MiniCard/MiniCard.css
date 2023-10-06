@@ -1,8 +1,13 @@
 #mini-card {
+  height: 100px;
+  width: 95%;
+  background-color: black;
+  border: 1px solid black;
+}
+/* 
+#mini-card > #card {
+  height: 100px;
+  width: auto;
   color: white;
   border: 1px solid black;
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: black;
-}
+} */

@@ -29,7 +29,7 @@ const WeatherContextPro = ({ children }) => {
 
     try {
       const response = await axios.request(options);
-      // console.log(response.data, "response data");
+      console.log(response.data, "response data");
 
       const thisData = Object.values(response.data.locations)[0];
 
@@ -49,7 +49,7 @@ const WeatherContextPro = ({ children }) => {
 
   useEffect(() => {
     // fetchWeather();
-  }, [place]);
+  }, []);
 
   return (
     <weatherContext.Provider
