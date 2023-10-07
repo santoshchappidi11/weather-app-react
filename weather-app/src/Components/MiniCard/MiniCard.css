@@ -1,13 +1,16 @@
-#mini-card {
-  height: 100px;
-  width: 95%;
-  background-color: black;
+#image-holder {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   border: 1px solid black;
 }
-/* 
-#mini-card > #card {
-  height: 100px;
-  width: auto;
-  color: white;
-  border: 1px solid black;
-} */
+
+#image {
+  height: 50%;
+  width: 20%;
+}
+
+#image > img {
+  height: 100%;
+  width: 100%;
+}

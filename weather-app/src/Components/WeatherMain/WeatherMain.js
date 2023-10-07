@@ -6,23 +6,72 @@ import { weatherContext } from "../Context/WeatherContext";
 
 const WeatherMain = () => {
   const { values } = useContext(weatherContext);
+
+  const duplicateValues = [
+    {
+      dateTime: "saturday",
+      temp: "28",
+      conditions: "Clear",
+    },
+    {
+      dateTime: "saturday",
+      temp: "28",
+      conditions: "Clear",
+    },
+    {
+      dateTime: "saturday",
+      temp: "28",
+      conditions: "Clear",
+    },
+    {
+      dateTime: "saturday",
+      temp: "28",
+      conditions: "Clear",
+    },
+    {
+      dateTime: "saturday",
+      temp: "28",
+      conditions: "Clear",
+    },
+  ];
+
   return (
     <div id="weather-body">
       <WeatherCard />
-      {values.slice(1, 7).map((curr, index) => (
-        // <MiniCard
-        //   key={curr.dateTime}
-        //   time={curr.dateTime}
-        //   temp={curr.temp}
-        //   conditions={curr.conditions}
-        // />
-        <MiniCard
-          key={1234}
-          time={new Date()}
-          temp={"28"}
-          conditions={"Clear"}
-        />
-      ))}
+
+      <div id="main-minicard">
+        {values?.length ? (
+          <div>
+            {values.map((curr) => {
+              return (
+                <div>
+                  <MiniCard
+                    key={curr.dateTime}
+                    time={curr.dateTime}
+                    temp={curr.temp}
+                    conditions={curr.conditions}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            {duplicateValues.map((curr) => {
+              return (
+                <div>
+                  <MiniCard
+                    key={curr.dateTime}
+                    time={curr.dateTime}
+                    temp={curr.temp}
+                    conditions={curr.conditions}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
