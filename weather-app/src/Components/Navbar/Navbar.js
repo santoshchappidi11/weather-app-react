@@ -17,7 +17,7 @@ const Navbar = () => {
         <h2>WEATHER APP</h2>
       </div>
       <div id="search-bar">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-magnifying-glass fa-xl"></i>
         <input
           onKeyUp={(e) => {
             if (e.key === "Enter") {

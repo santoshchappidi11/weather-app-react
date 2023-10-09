@@ -9,27 +9,27 @@ const WeatherMain = () => {
 
   const duplicateValues = [
     {
-      dateTime: "saturday",
+      datetime: "saturday",
       temp: "28",
       conditions: "Clear",
     },
     {
-      dateTime: "saturday",
+      datetime: "saturday",
       temp: "28",
       conditions: "Clear",
     },
     {
-      dateTime: "saturday",
+      datetime: "saturday",
       temp: "28",
       conditions: "Clear",
     },
     {
-      dateTime: "saturday",
+      datetime: "saturday",
       temp: "28",
       conditions: "Clear",
     },
     {
-      dateTime: "saturday",
+      datetime: "saturday",
       temp: "28",
       conditions: "Clear",
     },
@@ -42,12 +42,12 @@ const WeatherMain = () => {
       <div id="main-minicard">
         {values?.length ? (
           <div>
-            {values.map((curr) => {
+            {values.slice(1, 6).map((curr) => {
               return (
                 <div>
                   <MiniCard
-                    key={curr.dateTime}
-                    time={curr.dateTime}
+                    key={curr.datetime}
+                    time={curr.datetime}
                     temp={curr.temp}
                     conditions={curr.conditions}
                   />
@@ -61,8 +61,8 @@ const WeatherMain = () => {
               return (
                 <div>
                   <MiniCard
-                    key={curr.dateTime}
-                    time={curr.dateTime}
+                    key={curr.datetime}
+                    time={curr.datetime}
                     temp={curr.temp}
                     conditions={curr.conditions}
                   />

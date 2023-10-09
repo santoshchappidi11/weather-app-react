@@ -38,10 +38,9 @@ const MiniCard = ({ time, temp, conditions }) => {
       <div id="">
         <h3>
           {
-            // new Date(time)
-            //   .toLocaleDateString("en", { weekday: "long" })
-            //   .split("")[0]
-            time
+            new Date(time)
+              .toLocaleTimeString("en", { weekday: "long" })
+              .split(" ")[0]
           }
         </h3>
       </div>

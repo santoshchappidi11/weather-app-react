@@ -11,46 +11,41 @@ import Stormy from "../Assets/Images/Stormy.jpg";
 import Sunny from "../Assets/Images/Sunny.jpg";
 
 // --------------------------------------------------------------->
-import cloud from "../Assets/Icons/cloud.png";
-import fog from "../Assets/Icons/fog.png";
-import rain from "../Assets/Icons/rain.png";
-import snow from "../Assets/Icons/snow.png";
-import storm from "../Assets/Icons/storm.png";
-import sun from "../Assets/Icons/sun.png";
-import wind from "../Assets/Icons/windy.png";
+// import cloud from "../Assets/Icons/cloud.png";
+// import fog from "../Assets/Icons/fog.png";
+// import rain from "../Assets/Icons/rain.png";
+// import snow from "../Assets/Icons/snow.png";
+// import storm from "../Assets/Icons/storm.png";
+// import sun from "../Assets/Icons/sun.png";
+// import wind from "../Assets/Icons/windy.png";
 import { weatherContext } from "../Context/WeatherContext";
 
 const WeatherCard = () => {
   const { weather, place } = useContext(weatherContext);
   const [image, setImage] = useState(Rainy);
-  // console.log(weather, "weather");
-  const {
-    temp,
-    wspd,
-    humidity,
-    heatIndex,
-    // iconString,
-    conditions,
-  } = weather;
-  const [icon, setIcon] = useState(sun);
+
+  const { temp, wspd, humidity, heatIndex, conditions, visibility } = weather;
+  const [icon, setIcon] = useState("");
   const { time } = useDate();
+
+  console.log(icon, "ICON");
 
   useEffect(() => {
     if (conditions) {
       if (conditions.toLowerCase().includes("cloud")) {
-        setIcon(cloud);
+        setIcon("fa-cloud");
       } else if (conditions.toLowerCase().includes("rain")) {
-        setIcon(rain);
+        setIcon("fa-cloud-rain");
       } else if (conditions.toLowerCase().includes("clear")) {
-        setIcon(sun);
+        setIcon("fa-sun");
       } else if (conditions.toLowerCase().includes("thunder")) {
-        setIcon(storm);
+        setIcon("fa-cloud-bolt");
       } else if (conditions.toLowerCase().includes("fog")) {
-        setIcon(fog);
+        setIcon("fa-smog");
       } else if (conditions.toLowerCase().includes("snow")) {
-        setIcon(snow);
+        setIcon("fa-snowflake");
       } else if (conditions.toLowerCase().includes("wind")) {
-        setIcon(wind);
+        setIcon("fa-wind");
       }
     }
   }, [conditions]);
@@ -87,10 +82,18 @@ const WeatherCard = () => {
     <div id="weather-card">
       <div id="background-image">
         <img src={image} alt="weather-background" />
+        <div id="overlay"></div>
         <div id="weather-main">
           <div id="weather-temp">
-            <img src={icon} alt="icons" />
+            {icon && (
+              <i
+                className={`fa-solid ${icon}`}
+                style={{ fontSize: "100px" }}
+              ></i>
+            )}
+            {/* <img src={icon} alt="icons" /> */}
             <h1>{temp ? temp : "0"} &deg;C</h1>
+            <span>{conditions}</span>
             <h2>{place}</h2>
           </div>
           <div id="current-date">
@@ -100,35 +103,40 @@ const WeatherCard = () => {
         </div>
       </div>
       <div id="other-details">
-        <div id="curretn-temp">
-          <h4>
-            Current Temperature <i class="fa-solid fa-temperature-half"></i>
-          </h4>
+        <div id="current-temp">
+          <div>
+            <h4>Current Temperature</h4>
+            <i class="fa-solid fa-temperature-half"></i>
+          </div>
           <span>{temp ? temp : "0"} &deg;C</span>
         </div>
         <div id="wind">
-          <h4>
-            Wind Speed <i class="fa-solid fa-wind"></i>
-          </h4>
-          <span>{wspd ? wspd : "0"}Km/h</span>
+          <div>
+            <h4>Wind Speed</h4>
+            <i class="fa-solid fa-wind"></i>
+          </div>
+          <span>{wspd ? wspd : "0"} Km/h</span>
         </div>
         <div id="humidity">
-          <h4>
-            Humidity <i class="fa-solid fa-droplet"></i>
-          </h4>
-          <span>{humidity ? humidity : "0"}%</span>
+          <div>
+            <h4>Humidity</h4>
+            <i class="fa-solid fa-droplet"></i>
+          </div>
+          <span>{humidity ? humidity : "0"} %</span>
         </div>
         <div id="heat-index">
-          <h4>
-            Heat Index <i class="fa-solid fa-temperature-high"></i>
-          </h4>
+          <div>
+            <h4>Heat Index</h4>
+            <i class="fa-solid fa-temperature-high"></i>
+          </div>
           <span>{heatIndex ? heatIndex : "N/A"}</span>
         </div>
         <div id="overcast">
-          <h4>
-            Conditions: <i class="fa-solid fa-water"></i>
-          </h4>
-          <span>{conditions ? conditions : "Clear"}</span>
+          <div>
+            <h4>Visibility</h4>
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <span>{visibility ? visibility : "0"} Km</span>
         </div>
       </div>
     </div>

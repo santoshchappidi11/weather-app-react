@@ -2,12 +2,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 #image {
-  height: 50%;
-  width: 20%;
+  height: 60%;
+  width: 30%;
 }
 
 #image > img {
