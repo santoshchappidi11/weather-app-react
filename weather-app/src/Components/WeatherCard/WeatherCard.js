@@ -19,6 +19,7 @@ import Sunny from "../Assets/Images/Sunny.jpg";
 // import sun from "../Assets/Icons/sun.png";
 // import wind from "../Assets/Icons/windy.png";
 import { weatherContext } from "../Context/WeatherContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const WeatherCard = () => {
   const { weather, place } = useContext(weatherContext);
@@ -28,7 +29,7 @@ const WeatherCard = () => {
   const [icon, setIcon] = useState("");
   const { time } = useDate();
 
-  console.log(icon, "ICON");
+  // console.log(icon, "ICON");
 
   useEffect(() => {
     if (conditions) {
@@ -86,11 +87,15 @@ const WeatherCard = () => {
         <div id="weather-main">
           <div id="weather-temp">
             {icon && (
-              <i
+              <FontAwesomeIcon
+                icon={`fa-solid ${icon}`}
+                style={{ fontSize: "70px" }}
+              />
+            )}
+            {/* <i
                 className={`fa-solid ${icon}`}
                 style={{ fontSize: "100px" }}
-              ></i>
-            )}
+              ></i> */}
             {/* <img src={icon} alt="icons" /> */}
             <h1>{temp ? temp : "0"} &deg;C</h1>
             <span>{conditions}</span>

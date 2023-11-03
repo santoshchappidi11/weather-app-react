@@ -49,7 +49,7 @@ const WeatherContextPro = ({ children }) => {
 
   useEffect(() => {
     // fetchWeather();
-  }, []);
+  }, [place]);
 
   return (
     <weatherContext.Provider

@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div id="navbar">
       <div id="logo">
-        <h2>WEATHER APP</h2>
+        <h2 className="fancy">WEATHER APP</h2>
       </div>
       <div id="search-bar">
         <i class="fa-solid fa-magnifying-glass fa-xl"></i>
