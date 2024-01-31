@@ -99,7 +99,7 @@ const WeatherCard = () => {
             {/* <img src={icon} alt="icons" /> */}
             <h1>{temp ? temp : "0"} &deg;C</h1>
             <span>{conditions}</span>
-            <h2>{place}</h2>
+            <h2>{place.toUpperCase()}</h2>
           </div>
           <div id="current-date">
             <p>{new Date().toDateString()}</p>
